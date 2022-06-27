@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+}
+.navbar{
+    background-color: rgb(21, 82, 92);
+}
+.navbar a{
+    font-weight: 500;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    font-size: 20px;
+}
+.navbar .content{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    font-size: 20px;
+    
+}
+
+
+.navbar .content .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+    margin-left: auto;
+    flex: 1;
+    max-width: 650px;
+}
+
+
+.navbar .content .socials {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    margin-right: 50px;
+}
