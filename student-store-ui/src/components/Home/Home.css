@@ -5,5 +5,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin: 5%
+  margin: 5%;
+  max-width: 100%;
+  overflow-x: hidden;
 }

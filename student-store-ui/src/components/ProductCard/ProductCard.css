@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 15px;
-   
+    justify-content: center;
   }
   .product-card .media {
     height: 250px;

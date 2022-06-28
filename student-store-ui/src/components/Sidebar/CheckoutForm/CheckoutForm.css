@@ -1,2 +1,32 @@
+.checkout-form{
+    margin-top: 8px;
+}
 
+.checkout-input{
+    max-width: 200px;
+    min-width: 170px;
+    height: 30px;
+    border: 1px solid #dcdedc;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.right{
+    margin-left: 10px;
+}
+
+.checkout-button{
+    margin-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    background-color: #E7BBE3;
+    border: none;
+    color: black;
+    padding: 7px 15px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 

@@ -6,20 +6,18 @@ import Home from "../Home/Home";
 import Hero from "../Hero/Hero";
 import About from "../About/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ShoppingCart from "../Sidebar/ShoppingCart/ShoppingCart";
 import "./App.css";
 import ProductDetail from "../ProductDetail/ProductDetail";
-
 
 export default function App() {
   const [products, setProducts] = React.useState([]);
   const [error, setError] = React.useState(null);
   const [isFetching, setIsFecthing] = React.useState(false);
-  const [searchInput, setSearchInput] = React.useState("")
-  const [cart, setCart] = React.useState({})
-  const [activeCategory, setActiveCategory] = React.useState("All Categories")
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [shoppingCart, setShoppingCart] = React.useState([])
+  const [searchInput, setSearchInput] = React.useState("");
+  const [cart, setCart] = React.useState({});
+  const [activeCategory, setActiveCategory] = React.useState("All Categories");
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [shoppingCart, setShoppingCart] = React.useState([]);
 
   React.useEffect(() => {
     const fetchProducts = async () => {
@@ -42,138 +40,162 @@ export default function App() {
   }, []);
 
   const handleOnSearchInput = (action) => {
-    setSearchInput(action.target.value)
-  }
+    setSearchInput(action.target.value);
+  };
+  // // DEBUG
+  const handleAddItemToCart = (productId) => {
+    let checkForProduct = shoppingCart.find(
+      (product) => product.itemId === productId
+    );
 
-  const handleAddItemToCart = (item) => setShoppingCart(addToCart(shoppingCart,item))
-  // error saying it is not function
-  const addToCart = (shoppingCart, item) => {
-    if (shoppingCart.hasOwnProperty(item.id)){
-      return {
-        shoppingCart, [item.id]: shoppingCart[item.id] + 1
-      }
+    if (checkForProduct == undefined) {
+      const arr = [
+        ...shoppingCart,
+        {
+          itemId: productId,
+          quantity: 1,
+        },
+      ];
+      setShoppingCart(arr);
+      console.log("arr: ", arr);
+    } else {
+      const arrr = shoppingCart.map((product) => {
+        if (product.itemId == productId) {
+          return {
+            ...product,
+            quantity: product.quantity + 1,
+          };
+        }
+        return product;
+      });
+      setShoppingCart(arrr);
+      console.log("arrr: ", arrr);
     }
-    return {
-      shoppingCart, [item.id]: 1,
-    }
-  }
+  };
+  // // DEBUG
+  const handleRemoveItemToCart = (productId) => {
+    let checkForProduct = shoppingCart.find(
+      (product) => product.itemId === productId
+    );
 
-  const handleRemoveItemToCart = (item) => setShoppingCart(removeFromCart(shoppingCart, item))
-  // error saying not a func
-  const removeFromCart = (shoppingCart, item) => {
-    if (shoppingCart.hasOwnProperty(item.id)){
-      return {
-        shoppingCart, [item.id]: shoppingCart[item.id] - 1
-      }
+    if (checkForProduct != undefined) {
+      const arr = shoppingCart.map((product) => {
+        if (product.itemId == productId) {
+          return {
+            ...product,
+            quantity: product.quantity - 1,
+          };
+        }
+        return product;
+      });
+      var items = arr.filter((ele) => ele.quantity != 0);
+      setShoppingCart(items);
+      console.log("items: ", items);
     }
-    return {
-      shoppingCart, [item.id]: 1,
-    }
-    
-  }
+  };
 
-  const handleGetQuantity =(item) => getQuantityFunc(cart, item)
+  const handleGetQuantity = (item) => getQuantityFunc(cart, item);
   const getQuantityFunc = (cart, item) => {
-    return   cart[item.id] || 0
+    return cart[item.id] || 0;
+  };
+
+  function handleOnToggle() {
+    setIsOpen(!isOpen);
   }
 
-  
-  function handleOnToggle(){
-    setIsOpen(!isOpen)
-  }
-
-  const [checkoutForm, setCheckouForm] = React.useState({"name": "", "email": ""})
+  const [checkoutForm, setCheckouForm] = React.useState({
+    name: "",
+    email: "",
+  });
   const handleOnCheckoutFormChange = (user, amount) => {
-    let form = checkoutForm
-    form[user] = amount
-    setCheckouForm(form)
-  }
+    let form = checkoutForm;
+    form[user] = amount;
+    setCheckouForm(form);
+  };
 
   const handleOnSubmitCheckoutForm = async () => {
-    setCheckouForm({"name": "", "email": ""});
-    if (shoppingCart.length != 0){
-      const response = await axios.post(
-        `https://codepath-store-api.herokuapp.com/store`,{
+    setCheckouForm({ name: "", email: "" });
+    if (shoppingCart.length != 0) {
+      const response = await axios
+        .post(`https://codepath-store-api.herokuapp.com/store`, {
           user: checkoutForm,
-          shoppingCart: shoppingCart
-      } 
-        ).catch((e) => {
-          setError(e.message)
-        }).then((amount) => {
-          setCheckouForm({"name": "", "email": ""})
+          shoppingCart: shoppingCart,
         })
+        .catch((e) => {
+          setError(e.message);
+        })
+        .then((amount) => {
+          setCheckouForm({ name: "", email: "" });
+        });
     } else {
-      setError("Empty Cart!! Buy something!")
+      setError("Empty Cart!! Buy something!");
     }
-  }
+  };
   return (
     <div className="app">
       <BrowserRouter>
-      <main>
-      <Navbar />
-      <Hero />
-      <Sidebar 
-        products={products}
-        isOpen={isOpen}
-        shoppingCart={shoppingCart}
-        checkoutForm={checkoutForm}
-        isFetching = {isFetching}
-        handleOnCheckoutFormChange={handleOnCheckoutFormChange}
-        handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
-        handleOnToggle ={handleOnToggle}
-        error = {error}
-      /> 
-        <Routes>
-      
-          <Route
-            path="/" or 
-            element={
-              <Home
-                error={error}
-                products={products}
-                isFetching={isFetching}
-                handleOnSearchInput={handleOnSearchInput}
-                searchInput={searchInput}
-                handleAddItemToCart={handleAddItemToCart}
-                handleRemoveItemToCart={handleRemoveItemToCart}
-                getQuantity={handleGetQuantity}
-                activeCategory={activeCategory}
-                setActiveCategory={setActiveCategory}
-               
-              />
-            }
+        <main>
+          <Navbar />
+          <Hero />
+          <Sidebar
+            products={products}
+            isOpen={isOpen}
+            shoppingCart={shoppingCart}
+            checkoutForm={checkoutForm}
+            isFetching={isFetching}
+            handleOnCheckoutFormChange={handleOnCheckoutFormChange}
+            handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+            handleOnToggle={handleOnToggle}
+            error={error}
           />
-          <Route path= "/products/:productId" or element = {
-            <ProductDetail
-              shoppingCart={shoppingCart}
-              isFetching ={isFetching}
-              handleAddItemToCart = {handleAddItemToCart}
-              handleRemoveItemToCart = {handleRemoveItemToCart}
-          /> } />
-      
-          <Route 
-            path="/About"
-            element={
-              <About 
-              />
-              
-            }
-            
-          />
-          <Route 
-            path="/Home"
-            element={
-              <Home 
-                error={error}
-                products={products}
-                isFetching={isFetching}/>
-            }
-          />
-          {/* <Route path="*" or element ={
+          <Routes>
+            <Route
+              path="/"
+              or
+              element={
+                <Home
+                  error={error}
+                  products={products}
+                  isFetching={isFetching}
+                  handleOnSearchInput={handleOnSearchInput}
+                  searchInput={searchInput}
+                  handleAddItemToCart={handleAddItemToCart}
+                  handleRemoveItemToCart={handleRemoveItemToCart}
+                  getQuantity={handleGetQuantity}
+                  activeCategory={activeCategory}
+                  setActiveCategory={setActiveCategory}
+                />
+              }
+            />
+            <Route
+              path="/products/:productId"
+              or
+              element={
+                <ProductDetail
+                  shoppingCart={shoppingCart}
+                  isFetching={isFetching}
+                  handleAddItemToCart={handleAddItemToCart}
+                  handleRemoveItemToCart={handleRemoveItemToCart}
+                />
+              }
+            />
+
+            <Route path="/About" element={<About />} />
+            <Route
+              path="/Home"
+              element={
+                <Home
+                  error={error}
+                  products={products}
+                  isFetching={isFetching}
+                />
+              }
+            />
+            {/* <Route path="*" or element ={
             <NotFound />
           } */}
-          {/* <Navbar /> */}
-          {/* <Sidebar 
+            {/* <Navbar /> */}
+            {/* <Sidebar 
             products={products}
             isOpen={isOpen}
             isFetching={isFetching}
@@ -184,12 +206,10 @@ export default function App() {
             handleOnToggle ={handleOnToggle}
             error={error}
           /> */}
-          {/* <Hero /> */}
-        
-        </Routes>
+            {/* <Hero /> */}
+          </Routes>
         </main>
       </BrowserRouter>
-      
     </div>
   );
 }
