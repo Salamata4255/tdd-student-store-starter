@@ -145,5 +145,161 @@
       "price": 999.99
     }
   ],
-  "purchases": []
+  "purchases": [
+    null,
+    {
+      "id": 1,
+      "name": "Salamata",
+      "email": "sb5367@fb.com",
+      "order": [
+        {
+          "itemId": 4,
+          "quantity": 3
+        }
+      ],
+      "total": "10.60",
+      "createdAt": "6/29/2022, 3:20:31 PM",
+      "receipt": "receipt: 2\n                     username: Salamata with email at sb5367@fb.com for total cost of\n                     10.60\n            "
+    },
+    {
+      "id": 2,
+      "name": "Salamata",
+      "email": "sb5367@fb.com",
+      "order": [
+        {
+          "itemId": 9,
+          "quantity": 3
+        }
+      ],
+      "total": "16.28",
+      "createdAt": "6/29/2022, 3:33:03 PM",
+      "receipt": "receipt: 3\n                     username: Salamata with email at sb5367@fb.com for total cost of\n                     16.28\n            "
+    },
+    {
+      "id": 3,
+      "name": "Salamata",
+      "email": "sb5367@fb.com",
+      "order": [
+        {
+          "itemId": 5,
+          "quantity": 3
+        },
+        {
+          "itemId": 7,
+          "quantity": 13
+        }
+      ],
+      "total": "95.01",
+      "createdAt": "6/29/2022, 3:45:06 PM",
+      "receipt": "receipt: 4\n\n                     username: Salamata \n with email at sb5367@fb.com \n for total cost of\n                     95.01\n            "
+    },
+    {
+      "id": 4,
+      "name": "Salamata",
+      "email": "sb5367@fb.com",
+      "order": [
+        {
+          "itemId": 5,
+          "quantity": 3
+        },
+        {
+          "itemId": 7,
+          "quantity": 13
+        }
+      ],
+      "total": "95.01",
+      "createdAt": "6/29/2022, 3:46:56 PM",
+      "receipt": "receipt: 5 username: Salamata with email at sb5367@fb.com for total cost of $95.01\n            "
+    },
+    {
+      "id": 5,
+      "name": "Salamata",
+      "email": "sb5367@fb.com",
+      "order": [
+        {
+          "itemId": 2,
+          "quantity": 3
+        },
+        {
+          "itemId": 7,
+          "quantity": 63
+        }
+      ],
+      "total": "346.77",
+      "createdAt": "6/29/2022, 3:48:32 PM",
+      "receipt": "Your receipt number is: 5 username: Salamata with email at sb5367@fb.com for total cost of $346.77"
+    },
+    {
+      "id": 6,
+      "name": "Salamata",
+      "email": "sb5367@fb.com",
+      "order": [
+        {
+          "itemId": 7,
+          "quantity": 30
+        },
+        {
+          "itemId": 7,
+          "quantity": 63
+        }
+      ],
+      "total": "504.68",
+      "createdAt": "6/29/2022, 3:54:00 PM",
+      "receipt": "Your receipt number is: 6 and your username is: Salamata with an email at sb5367@fb.com for a total cost of $504.68"
+    },
+    {
+      "id": 7,
+      "name": "Salamata",
+      "email": "sb5367@fb.com",
+      "order": [
+        {
+          "itemId": 8,
+          "quantity": 30
+        },
+        {
+          "itemId": 9,
+          "quantity": 63
+        }
+      ],
+      "total": "994.05",
+      "createdAt": "6/29/2022, 4:54:08 PM",
+      "receipt": "Your receipt number is: 7 and your username is: Salamata with an email at sb5367@fb.com for a total cost of $994.05"
+    },
+    {
+      "id": 8,
+      "name": "Salamata",
+      "email": "sb5367@fb.com",
+      "order": [
+        {
+          "itemId": 9,
+          "quantity": 30
+        },
+        {
+          "itemId": 6,
+          "quantity": 63
+        }
+      ],
+      "total": "1532.36",
+      "createdAt": "6/29/2022, 4:54:26 PM",
+      "receipt": "Your receipt number is: 8 and your username is: Salamata with an email at sb5367@fb.com for a total cost of $1532.36"
+    },
+    {
+      "id": 9,
+      "name": "Salamata",
+      "email": "sb5367@fb.com",
+      "order": [
+        {
+          "itemId": 9,
+          "quantity": 30
+        },
+        {
+          "itemId": 6,
+          "quantity": 63
+        }
+      ],
+      "total": "1532.36",
+      "createdAt": "6/30/2022, 10:05:02 AM",
+      "receipt": "Your receipt number is: 9 and your username is: Salamata with an email at sb5367@fb.com for a total cost of $1532.36"
+    }
+  ]
 }
