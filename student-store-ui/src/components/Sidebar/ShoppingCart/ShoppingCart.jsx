@@ -41,13 +41,15 @@ export default function ShoppingCart({ isOpen, products, shoppingCart }) {
                   {checkForProduct(product.itemId).name}
                 </p>
 
-                {/* <p className="cart-product-quantity">
+                <p className="cart-product-quantity">
                   {checkForProduct(product.itemId).quantity}
-                </p> */}
+                </p>
+                <p className="quantity">{`Quantity: ${product.quantity}`}</p>
               </div>
             ))
           }
           <p className="subtotal">{`Subtotal: $${subtotal.toFixed(2)}`}</p>
+
           <p className="total-price.">
             {`Total(includes taxes): $${(subtotal * 1.0875).toFixed(2)}`}
           </p>

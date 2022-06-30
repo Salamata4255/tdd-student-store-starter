@@ -24,9 +24,7 @@ export default function App() {
       setIsFecthing(true);
 
       try {
-        const response = await axios.get(
-          "https://codepath-store-api.herokuapp.com/store"
-        );
+        const response = await axios.get("http://localhost:3001/store");
         if (response?.data?.products) {
           setProducts(response.data.products);
         } else {
@@ -57,7 +55,6 @@ export default function App() {
         },
       ];
       setShoppingCart(arr);
-      console.log("arr: ", arr);
     } else {
       const arrr = shoppingCart.map((product) => {
         if (product.itemId == productId) {
@@ -69,7 +66,6 @@ export default function App() {
         return product;
       });
       setShoppingCart(arrr);
-      console.log("arrr: ", arrr);
     }
   };
   // // DEBUG
@@ -90,14 +86,15 @@ export default function App() {
       });
       var items = arr.filter((ele) => ele.quantity != 0);
       setShoppingCart(items);
-      console.log("items: ", items);
     }
   };
 
-  const handleGetQuantity = (item) => getQuantityFunc(cart, item);
-  const getQuantityFunc = (cart, item) => {
-    return cart[item.id] || 0;
-  };
+  // const handleGetQuantity = (item) => getQuantityFunc(cart, item);
+  // const getQuantityFunc = (cart, item) => {
+  //   return cart[item.id] || 0;
+  // };
+
+  // const handleGetItemQuantity = (item) => getQuantityOfItemInCart(cart, item);
 
   function handleOnToggle() {
     setIsOpen(!isOpen);
@@ -116,15 +113,15 @@ export default function App() {
   const handleOnSubmitCheckoutForm = async () => {
     setCheckouForm({ name: "", email: "" });
     if (shoppingCart.length != 0) {
-      const response = await axios
-        .post(`https://codepath-store-api.herokuapp.com/store`, {
+      await axios
+        .post(`http://localhost:3001/store`, {
           user: checkoutForm,
           shoppingCart: shoppingCart,
         })
         .catch((e) => {
           setError(e.message);
         })
-        .then((amount) => {
+        .then(() => {
           setCheckouForm({ name: "", email: "" });
         });
     } else {
@@ -147,6 +144,7 @@ export default function App() {
             handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
             handleOnToggle={handleOnToggle}
             error={error}
+            // quantity={handleGetQuantity}
           />
           <Routes>
             <Route
@@ -154,6 +152,7 @@ export default function App() {
               or
               element={
                 <Home
+                  shoppingCart={shoppingCart}
                   error={error}
                   products={products}
                   isFetching={isFetching}
@@ -161,9 +160,10 @@ export default function App() {
                   searchInput={searchInput}
                   handleAddItemToCart={handleAddItemToCart}
                   handleRemoveItemToCart={handleRemoveItemToCart}
-                  getQuantity={handleGetQuantity}
+                  // getQuantity={handleGetQuantity}
                   activeCategory={activeCategory}
                   setActiveCategory={setActiveCategory}
+                  //getQuantityOfItemInCart={handleGetItemQuantity}
                 />
               }
             />

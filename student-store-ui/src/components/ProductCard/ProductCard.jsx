@@ -4,11 +4,13 @@ import "./ProductCard.css";
 export default function ProductCard({
   product,
   productId,
-  quantity,
   handleAddItemToCart,
   handleRemoveItemToCart,
   showDescription,
+  shoppingCart,
+  quantity,
 }) {
+  // console.log(quantity);
   let description = null;
 
   showDescription = true;
@@ -16,6 +18,7 @@ export default function ProductCard({
   if (showDescription) {
     description = <p className="productDescription">{product.description}</p>;
   }
+  // console.log("shoppingCart: ", shoppingCart);
 
   return (
     <div>
@@ -31,9 +34,7 @@ export default function ProductCard({
             </Link>
             <p className="product-name">{product.name}</p>
             <p className="product-price">${product.price}</p>
-            {/* <p className="product-quantity">
-                    {`Qty: ${quantity}`}
-            </p> */}
+            <p className="product-quantity">{`Qty: ${quantity}`}</p>
             <div>
               <button
                 className="add "
@@ -63,9 +64,9 @@ export default function ProductCard({
             </Link>
             <p className="product-name">{product.name}</p>
             <p className="product-price">${product.price}</p>
-            {/* <p className="product-quantity">
-                    {`Qty: ${quantity}`}
-            </p> */}
+            <p className="product-quantity">{`Quantity ${product.quantity}`}</p>
+            <p className="product-quantity">{`Qty: ${quantity}`}</p>
+
             <div>
               <button
                 className="add "
@@ -77,7 +78,7 @@ export default function ProductCard({
                 className="remove "
                 onClick={() => handleRemoveItemToCart(productId)}
               >
-                +
+                -
               </button>
             </div>
             {description}

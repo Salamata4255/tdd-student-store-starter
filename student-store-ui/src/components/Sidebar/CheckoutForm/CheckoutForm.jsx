@@ -32,7 +32,9 @@ export default function CheckoutForm({
         className="checkout-button"
         text="Checkout"
         onClick={() => handleOnSubmitCheckoutForm(checkoutForm, shoppingCart)}
-      />
+      >
+        Check out
+      </button>
       <p className="error">
         {/* {
                      <p className="success">Success! </p> 
