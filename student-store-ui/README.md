@@ -1,1 +1,0 @@
-# Student Store React UI
