@@ -1,7 +1,11 @@
-.product-view{
-    background-color: blue;
+.container{
+ 
+    margin: auto;
+    width: 50%;
 }
 
 .product-id{
     font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+   
 }

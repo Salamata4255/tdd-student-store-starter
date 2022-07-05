@@ -1,7 +1,10 @@
 .product-detail{
-    background-color: brown;
+   padding-left: 90px;
 }
 
 .loading{
     font-family: 'Times New Roman', Times, serif;
+}
+.view{
+    text-align: center;
 }

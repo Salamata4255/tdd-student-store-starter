@@ -33,10 +33,11 @@
   .SubNavbar .content .search-bar input {
     height: 40px;
     padding: 0 15px;
-    border-radius: 8px 0px 0px 8px;
+    border-radius: 10px;
     border: solid 1px #e4e4e4;
     flex: 1;
     font-size: 16px;
+    margin-left: 100px;;
   }
   .SubNavbar .content .search-bar i {
     height: 40px;

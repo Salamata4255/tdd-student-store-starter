@@ -4,28 +4,35 @@
 
 Selling merchandise in the modern era requires digital solutions. For this project, you'll be tasked with designing and constructing an online student store for the College of Codepath. The application entails a frontend user interface for potential customers to peruse the goods, and a backend API to handle data management. The API will be built with Node and Express and the UI will be built with React.
 
-// Include your gif here
+
+
+https://user-images.githubusercontent.com/57270552/176092617-b5ff1192-a56f-41a5-8ab3-dcc77b309698.mov
+
+
+
+https://user-images.githubusercontent.com/57270552/176786606-bf444dc6-079f-448e-8108-5ed1724e4eec.mov
+
 
 ### Application Features
 
 #### Core Features
 
-- [ ] Displays the following sections: header, banner, search, product grid, about, contact, and footer.
-- [ ] On initial page load, display the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store).
-- [ ] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
-- [ ] User can search for products.
-- [ ] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
-- [ ] User can click to expand the shopping cart in the left navigation.
-- [ ] User can click the '+' button on a product cart to increment that product in the shopping cart.
-- [ ] User can click the '-' button on a product cart to increment that product in the shopping cart.
-- [ ] Shopping cart displays a table of products, quantities, subtotal, tax, and total.
-- [ ] User can check out, and can view receipt upon completion.
+- [x] Displays the following sections: header, banner, search, product grid, about, contact, and footer.
+- [x] On initial page load, display the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store).
+- [x] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
+- [x] User can search for products.
+- [x] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
+- [x] User can click to expand the shopping cart in the left navigation.
+- [x] User can click the '+' button on a product cart to increment that product in the shopping cart.
+- [x] User can click the '-' button on a product cart to increment that product in the shopping cart.
+- [x] Shopping cart displays a table of products, quantities, subtotal, tax, and total.
+- [x] User can check out, and can view receipt upon completion.
 
 #### Stretch Features
 
-- [ ] User can click in the top navigation bar to scroll to the relevant section.
-- [ ] User sees a "not found" display when searching for a nonexistent product.
-- [ ] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
+- [x] User can click in the top navigation bar to scroll to the relevant section.
+- [x] User sees a "not found" display when searching for a nonexistent product.
+- [x] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
 - [ ] Build a page in the UI that displays the list of all past orders and lets the user click on any individual order to take them to a more detailed page of the transaction.
 - [ ] Allow users to use an input to filter orders by the email of the person who placed the order.
 
@@ -97,13 +104,13 @@ The following specifications were met on the Express backend and the React front
 
 **Navbar.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `nav` element with a `className` of `navbar`
-  - [ ] Should render the `Logo` component that links to the `/` route when clicked
+  - [x] Should render JSX that is wrapped by a `nav` element with a `className` of `navbar`
+  - [x] Should render the `Logo` component that links to the `/` route when clicked
 
 **Logo.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with a `className` of `logo`
-  - [ ] Should use the `Link` component from `react-router-dom` to link to the home route (`/`) when clicked
+  - [x] Should render JSX that is wrapped by a `div` element with a `className` of `logo`
+  - [x] Should use the `Link` component from `react-router-dom` to link to the home route (`/`) when clicked
 
 **Home.jsx**
 
@@ -117,9 +124,9 @@ The following specifications were met on the Express backend and the React front
 
 **Hero.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with a `className` of `hero`
-  - [ ] Should display an intro message inside an element with the `className` of `intro`. That message should contain the text `"Welcome!"` somewhere within it.
-  - [ ] Should render a hero image inside an `img` tag with the `className` of `hero-img`.
+  - [x] Should render JSX that is wrapped by a `div` element with a `className` of `hero`
+  - [x] Should display an intro message inside an element with the `className` of `intro`. That message should contain the text `"Welcome!"` somewhere within it.
+  - [x] Should render a hero image inside an `img` tag with the `className` of `hero-img`.
 
 **ProductGrid.jsx**
 
@@ -211,7 +218,7 @@ The following specifications were met on the Express backend and the React front
 
 **CheckoutForm.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with the `className` of `checkout-form`
+  - [x] Should render JSX that is wrapped by a `div` element with the `className` of `checkout-form`
   - [ ] Should accept **at least** the following props:
     - `isOpen` - boolean
     - `shoppingCart` - the active user's cart formatted as an array of objects with `itemId` and `quantity` keys
@@ -285,15 +292,15 @@ The following specifications were met on the Express backend and the React front
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, the twitter lab was particularly helpful in understanding react components and how we can apply them in this project.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+CSS, making the website more beautiful.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+It went okay overall, I did not plan that it would take long time to fix some busg.
 
 ### Open-source libraries used
 
@@ -302,3 +309,5 @@ Add your response here
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+Yilika!!!
