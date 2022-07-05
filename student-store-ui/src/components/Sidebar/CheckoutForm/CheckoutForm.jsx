@@ -35,11 +35,6 @@ export default function CheckoutForm({
       >
         Check out
       </button>
-      <p className="error">
-        {/* {
-                     <p className="success">Success! </p> 
-                } */}
-      </p>
     </div>
   );
 }
